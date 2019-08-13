@@ -15,13 +15,7 @@ pipeline{
     stages{
         stage('GitCheckOut'){
             steps{
-                checkout([$class: 'GitSCM', 
-                branches: [[name: '*/master']], 
-                doGenerateSubmoduleConfigurations: false, 
-                extensions: [], 
-                submoduleCfg: [], 
-                userRemoteConfigs: 
-                [[url: 'https://github.com/keertisurapaneni/maven-demo.git']]])
+                checkout scm
             }
         }
         stage('mvn build'){
